@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  # collie:
+  #   restart: unless-stopped
+  #   env_file:
+  #     - .env
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - '${APP_PORT}:8000'
+
+  collie-db:
+    restart: unless-stopped
+    env_file:
+      - .env
+    image: mongo:3.4
+    ports:
+      - '${DB_PORT}:27017'
+    volumes:
+      - :/data/db'
